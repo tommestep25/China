@@ -527,28 +527,22 @@ const itinerary = [
 ];
 
 // ICS generator
-function makeICS() {
-  const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//RoadTrip China//EN",
-  ];
+function makeICS(){
+  const lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//RoadTrip China//EN"];
   const tz = "Asia/Bangkok";
-  itinerary.forEach((day, idx) => {
-    day.items.forEach((it, j) => {
+  
+  itinerary.forEach((day, idx)=>{
+    day.items.forEach((it, j)=>{
       const timeStr = it.time;
       const hasClock = /^\d{1,2}:\d{2}(–\d{1,2}:\d{2})?$/.test(timeStr);
-      if (!hasClock) return;
+      if(!hasClock) return;
+      
       const [start, end] = timeStr.split("–");
       const baseDay = 5 + idx;
-      const pad = (n: number) => String(n).padStart(2, "0");
-      const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(
-        ":",
-        ""
-      )}00`;
-      const endDate = end
-        ? `2025${pad(12)}${pad(baseDay)}T${end.replace(":", "")}00`
-        : `2025${pad(12)}${pad(baseDay)}T${start.replace(":", "")}00`;
+      const pad = (n: number) => String(n).padStart(2,'0');
+      const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
+      const endDate = end ? `2025${pad(12)}${pad(baseDay)}T${end.replace(":","")}00` : `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
+      
       lines.push(
         "BEGIN:VEVENT",
         `UID:${idx}-${j}@roadtrip-china`,
@@ -556,19 +550,18 @@ function makeICS() {
         `DTSTART;TZID=${tz}:${startDate}`,
         `DTEND;TZID=${tz}:${endDate}`,
         `SUMMARY:${day.city} — ${it.title}`,
-        `DESCRIPTION:${it.note || ""}`,
+        `DESCRIPTION:${it.note || ''}`,
         "END:VEVENT"
       );
     });
   });
+  
   lines.push("END:VCALENDAR");
-  const blob = new Blob([lines.join("\r\n")], {
-    type: "text/calendar;charset=utf-8",
-  });
+  const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8"});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "RoadTrip-China-Dec.ics";
+  const a = document.createElement('a');
+  a.href = url; 
+  a.download = 'RoadTrip-China-Dec.ics';
   a.click();
   URL.revokeObjectURL(url);
 }
