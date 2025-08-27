@@ -488,37 +488,37 @@ const itinerary = [
     icon: <Plane className="w-4 h-4" />,
     items: [
       {
-        time: "08:00",
+        time: "10:00",
         title: "เช็กเอาท์ + เก็บกระเป๋า",
         note: "ดูเวลาเที่ยวบิน, คำนวณเวลาไปสนามบิน",
       },
       {
-        time: "09:00–11:00",
+        time: "10:00–12:00",
         title: "ช้อปปิ้งของฝากสุดท้าย",
         note: "Nanjing Road, ชา, ขนม, เสื้อผ้า, อิเลคทรอนิกส์",
       },
       {
-        time: "11:30",
+        time: "12:30",
         title: "ลันช์ Din Tai Fung Xintiandi",
         note: "ร้านสุดท้าย Xiao Long Bao ดัง ~80-120 CNY/คน",
       },
       {
-        time: "13:00",
+        time: "19:00",
         title: "รับกระเป๋า + ออกไปสนามบิน Pudong",
         note: "Maglev Train (8 นาที) หรือ Metro Line 2 (1 ชม.)",
       },
       {
-        time: "15:00",
+        time: "20:00",
         title: "เช็กอิน + Tax Refund (ถ้ามี)",
         note: "เช็กอินล่วงหน้า 3 ชม., เก็บใบเสร็จสำหรับ tax refund",
       },
       {
-        time: "17:00",
+        time: "23:59",
         title: "เที่ยวบิน PVG → BKK",
         note: "ระยะเวลาบิน ~3-4 ชม. + ต่างเวลา 1 ชม.",
       },
       {
-        time: "21:00",
+        time: "23:59",
         title: "ถึงไทย ความทรงจำดี ๆ",
         note: "ผ่านตรวจคนเข้าเมือง, รับกระเป๋า, กลับบ้านปลอดภัย",
       },
@@ -538,7 +538,7 @@ function makeICS(){
       if(!hasClock) return;
       
       const [start, end] = timeStr.split("–");
-      const baseDay = 5 + idx;
+      const baseDay = 4 + idx;
       const pad = (n: number) => String(n).padStart(2,'0');
       const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
       const endDate = end ? `2025${pad(12)}${pad(baseDay)}T${end.replace(":","")}00` : `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
