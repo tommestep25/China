@@ -36,74 +36,100 @@ import {
 
 // ---------- DATA ----------
 const places = [
-  // Chengdu
+  // --- Chengdu ---
+  {
+    city: "Chengdu",
+    name: "Chengdu Research Base of Giant Panda Breeding",
+    type: "สถานที่เที่ยว",
+    maps: "https://www.google.com/maps?q=Chengdu+Research+Base+of+Giant+Panda+Breeding&output=embed",
+    link: "https://goo.gl/maps/FRaJcqKuCL19rZxC6",
+  },
+  {
+    city: "Chengdu",
+    name: "Jinli Ancient Street",
+    type: "ถนนโบราณ / Street Food",
+    maps: "https://www.google.com/maps?q=Jinli+Ancient+Street+Chengdu&output=embed",
+    link: "https://goo.gl/maps/Va5GevVjXw62",
+  },
   {
     city: "Chengdu",
     name: "Chen Mapo Tofu",
     type: "อาหารเสฉวน (Mapo Tofu)",
-    maps: "https://www.google.com/maps?q=Chen%20Mapo%20Tofu%20Chengdu&output=embed",
+    maps: "https://www.google.com/maps?q=Chen+Mapo+Tofu+Chengdu&output=embed",
     link: "https://goo.gl/maps/4KNYW2B28YQz3eMo9",
   },
   {
     city: "Chengdu",
     name: "Shu Daxia Hotpot",
     type: "Hotpot เสฉวน",
-    maps: "https://www.google.com/maps?q=Shu%20Daxia%20Hotpot%20Chengdu&output=embed",
+    maps: "https://www.google.com/maps?q=Shu+Daxia+Hotpot+Chengdu&output=embed",
     link: "https://goo.gl/maps/jPR5Yt7oxN1jvHcb8",
   },
-  {
-    city: "Chengdu",
-    name: "Kuanzhai Alley Street Food",
-    type: "Street Food",
-    maps: "https://www.google.com/maps?q=Kuanzhai%20Alley%20Chengdu&output=embed",
-    link: "https://goo.gl/maps/y8poQhaAf4ptwYnS7",
-  },
 
-  // Rilong / Siguniangshan
+  // --- Rilong / Siguniangshan ---
+  {
+    city: "Rilong",
+    name: "Shuangqiao Valley",
+    type: "ธรรมชาติ / หุบเขา",
+    maps: "https://www.google.com/maps?q=Shuangqiao+Valley+Siguniangshan&output=embed",
+    link: "https://goo.gl/maps/1ebfLbHx5V8hTbpq9",
+  },
+  {
+    city: "Rilong",
+    name: "Changping Valley",
+    type: "ธรรมชาติ / เดินป่า",
+    maps: "https://www.google.com/maps?q=Changping+Valley+Siguniangshan&output=embed",
+    link: "https://goo.gl/maps/7Z6q2X8pYvSpPbUf8",
+  },
   {
     city: "Rilong",
     name: "Four Girls Mountain Restaurant",
     type: "อาหารทิเบต + เสฉวน",
-    maps: "https://www.google.com/maps?q=Four%20Girls%20Mountain%20Restaurant%20Rilong&output=embed",
+    maps: "https://www.google.com/maps?q=Four+Girls+Mountain+Restaurant+Rilong&output=embed",
     link: "https://goo.gl/maps/6g6UxSTPgeALPvGJ6",
   },
 
-  // Li County / Bipenggou vicinity
+  // --- Shanghai ---
   {
-    city: "Li County",
-    name: "Li County Farmhouse Restaurant",
-    type: "อาหารพื้นบ้าน",
-    maps: "https://www.google.com/maps?q=Li%20County%20Farmhouse%20Restaurant&output=embed",
-    link: "",
+    city: "Shanghai",
+    name: "The Bund (外滩)",
+    type: "แลนด์มาร์ก / Skyline",
+    maps: "https://www.google.com/maps?q=The+Bund+Shanghai&output=embed",
+    link: "https://goo.gl/maps/XtNH2wVXp9u",
   },
-
-  // Shanghai
+  {
+    city: "Shanghai",
+    name: "Yu Garden (豫园)",
+    type: "สวนโบราณ + Bazaar",
+    maps: "https://www.google.com/maps?q=Yu+Garden+Shanghai&output=embed",
+    link: "https://goo.gl/maps/PMgE4fKq4Z82",
+  },
+  {
+    city: "Shanghai",
+    name: "Shanghai Disneyland",
+    type: "สวนสนุก",
+    maps: "https://www.google.com/maps?q=Shanghai+Disneyland&output=embed",
+    link: "https://goo.gl/maps/EeSS3DqL6yK2",
+  },
   {
     city: "Shanghai",
     name: "Jia Jia Tang Bao",
     type: "Xiao Long Bao",
-    maps: "https://www.google.com/maps?q=Jia%20Jia%20Tang%20Bao%20Shanghai&output=embed",
+    maps: "https://www.google.com/maps?q=Jia+Jia+Tang+Bao+Shanghai&output=embed",
     link: "https://goo.gl/maps/d2kx8SLLuXtCDhBr6",
   },
   {
     city: "Shanghai",
     name: "Yang's Fried Dumpling",
     type: "Sheng Jian Bao",
-    maps: "https://www.google.com/maps?q=Yang's%20Fried%20Dumpling%20Shanghai&output=embed",
+    maps: "https://www.google.com/maps?q=Yang's+Fried+Dumpling+Shanghai&output=embed",
     link: "https://goo.gl/maps/DGi1s5Gq58mN1VjR6",
   },
   {
     city: "Shanghai",
-    name: "Old Jesse",
-    type: "อาหารเซี่ยงไฮ้ดั้งเดิม",
-    maps: "https://www.google.com/maps?q=Old%20Jesse%20Shanghai&output=embed",
-    link: "https://goo.gl/maps/mPHzRdrE1VhHyeyA8",
-  },
-  {
-    city: "Shanghai",
     name: "Din Tai Fung (Xintiandi)",
-    type: "ติ่มซำ / Xiao Long Bao",
-    maps: "https://www.google.com/maps?q=Din%20Tai%20Fung%20Xintiandi%20Shanghai&output=embed",
+    type: "ติ่มซำ",
+    maps: "https://www.google.com/maps?q=Din+Tai+Fung+Xintiandi+Shanghai&output=embed",
     link: "https://goo.gl/maps/4cxiMnVZycnqq2Wj6",
   },
 ];
@@ -198,329 +224,164 @@ const itinerary = [
       {
         time: "สำคัญมาก",
         title: "จองตั๋วเครื่องบิน BKK-CTU, CTU-PVG, PVG-BKK",
-        note: "เช็ครอบวีซ่าจีน, หนังสือเดินทาง > 6 เดือน",
+        note: "หนังสือเดินทาง > 6 เดือน",
       },
       {
         time: "ทำล่วงหน้า",
-        title: "จองที่พัก Chengdu (2 คืน) + Shanghai (2 คืน)",
-        note: "Booking.com, Agoda หรือ Ctrip ภาษาจีน",
+        title: "จองที่พัก Rilong (2 คืน), Chengdu (1 คืน), Shanghai (2 คืน)",
+        note: "Booking.com, Agoda หรือ Ctrip",
       },
       {
         time: "จำเป็น",
         title: "ซื้อตั๋ว Shanghai Disneyland",
-        note: "เว็บ official หรือ Klook ~2,000-2,800 บาท (รอสาย)",
+        note: "เว็บ official หรือ Klook ~2,000-2,800 บาท",
       },
       {
         time: "แนะนำ",
-        title: "ดาวน์โหลดแอป WeChat, Alipay, Didi, Baidu Maps",
-        note: "ผูก VPN และบัตรเครดิต/เดบิต",
-      },
-      {
-        time: "ก่อนบิน",
-        title: "เช็คสภาพอากาศ Balang Shan + Bipenggou",
-        note: "อาจปิดถนนหิมะหนัก ต้องปรับแพลน",
+        title: "ดาวน์โหลด WeChat, Alipay, Didi, Baidu Maps",
+        note: "VPN และผูกบัตรเครดิต",
       },
     ],
   },
   {
     date: "ศุกร์ 5 ธ.ค.",
-    city: "เฉิงตู Chengdu",
+    city: "Chengdu → Siguniangshan",
     icon: <Plane className="w-4 h-4" />,
     items: [
       {
-        time: "06:00",
-        title: "เช็กอิน สนามบิน BKK (3 ชม.ก่อนบิน)",
-        note: "เตรียม Passport, บัตรโดยสาร, เงินสดจีน ~3,000-5,000 CNY",
+        time: "09:30",
+        title: "ถึงสนามบิน Chengdu TFU (T2)",
+        note: "ผ่าน ตม. + รับกระเป๋า + ซื้อซิมจีน",
       },
       {
-        time: "09:00",
-        title: "ถึงสนามบินเฉิงตู (CTU Terminal 2)",
-        note: "ผ่านตรวจคน, รับกระเป๋า, ซื้อซิม China Mobile/Unicom",
+        time: "10:30–14:30",
+        title: "เดินทาง Chengdu → Rilong (Siguniangshan)",
+        note: "รถส่วนตัว ~4 ชม. ผ่านภูเขา Balang Shan",
       },
       {
-        time: "10:00",
-        title: "Airport Express → เมืองเฉิงตู",
-        note: "รถไฟฟ้า ~45 นาที หรือ Didi/แท็กซี่ ~1 ชม.",
+        time: "15:00",
+        title: "เช็กอินที่ Ten Miles B&B",
+        note: "พักผ่อน ปรับตัวอากาศสูง (3,000m)",
       },
       {
-        time: "10:30",
-        title: "เช็กอิน Jinjiang Inn หรือ Sim's Hostel",
-        note: "ฝากกระเป๋าได้ถ้าห้องยังไม่พร้อม, ทดสอบ WiFi + WeChat",
+        time: "16:30",
+        title: "เดินเล่นหมู่บ้าน Rilong",
+        note: "บรรยากาศเงียบสงบ วิวเขา",
       },
       {
-        time: "11:30–14:00",
-        title: "Chengdu Research Base of Giant Panda",
-        note: "ตั๋ว ~55 CNY, ไปเช้า แพนด้าตื่นตัว, รถเมล์ 87/198/532",
-      },
-      {
-        time: "14:30–17:00",
-        title: "ช้อป/เดิน Taikoo Li & Chunxi Road",
-        note: "เดินเล่น ถ่ายรูป, คาเฟ่, ห้าง IFS mall",
-      },
-      {
-        time: "18:00",
-        title: "เย็นที่ Kuanzhai Alley",
-        note: "Street food, ชา, ของฝากท้องถิ่น, ถ่ายรูปกับสถาปัตยกรรมเก่า",
-      },
-      {
-        time: "19:30",
-        title: "ดินเนอร์ Shu Daxia Hotpot หรือร้านเทียบเคียง",
-        note: "สั่งหม้อสองน้ำซุป (เผ็ด+ไม่เผ็ด), เนื้อ+ผัก ~150-200 CNY/คน",
+        time: "18:30",
+        title: "ดินเนอร์ท้องถิ่น",
+        note: "อาหารทิเบต + เสฉวน",
       },
     ],
   },
   {
     date: "เสาร์ 6 ธ.ค.",
-    city: "ไปเขาสี่ดรุณี Siguniangshan",
+    city: "Siguniangshan (Shuangqiao Valley)",
     icon: <Mountain className="w-4 h-4" />,
     items: [
       {
-        time: "06:00",
-        title: "เช็กเอาท์ + รับรถเช่า หรือ จ้างคนขับ",
-        note: "เส้นทาง ~4-5 ชม., SUV แนะนำ, GPS + แผนที่ออฟไลน์",
+        time: "08:00–15:00",
+        title: "เที่ยว Shuangqiao Valley",
+        note: "รถบัสเข้าอุทยาน วิวภูเขา ธารน้ำแข็ง",
       },
       {
-        time: "07:00",
-        title: "ออกจากเฉิงตู → Siguniangshan",
-        note: "เผื่อเวลา Balang Shan (4,523m) อาจมีหิมะ/ลม/ปิดถนน",
-      },
-      {
-        time: "10:00",
-        title: "พักแวะ Li County (ลิ่เซียน)",
-        note: "เติมน้ำมัน, ซื้อขนม/น้ำ, เช็คสภาพรถ",
-      },
-      {
-        time: "12:00",
-        title: "ถึง Rilong → เช็กอิน Local Guesthouse",
-        note: "ปรับตัวอากาศบาง (3,000m), ดื่มน้ำบ่อย, หลีกเลี่ยงกิจกรรมหนัก",
-      },
-      {
-        time: "13:00",
-        title: "ลันช์ + พักผ่อน",
-        note: "อาหารทิเบต/เสฉวน, ชาเปียกปอ, ซุปอุ่น ๆ",
-      },
-      {
-        time: "14:00–17:00",
-        title: "เที่ยว Changping Valley",
-        note: "ตั๋ว ~70 CNY, รถม้า +~80 CNY, วิวหุบเขา/ธารน้ำแข็ง, ทางเดินเรียบ",
+        time: "16:00",
+        title: "พักผ่อน + เดินเล่นรอบหมู่บ้าน",
+        note: "ถ่ายรูปพระอาทิตย์ตก",
       },
       {
         time: "18:00",
         title: "ดินเนอร์ที่เกสต์เฮาส์",
-        note: "อาหารทิเบตอุ่น ๆ Tsampa, Yak meat, เตรียมตัวพักผ่อน",
-      },
-      {
-        time: "20:00",
-        title: "พักผ่อนเต็มที่",
-        note: "ดื่มน้ำ, หลีกเลี่ยงแอลกอฮอล์, นอนหลับให้เพียงพอ",
+        note: "Yak meat, ซุปอุ่น ๆ",
       },
     ],
   },
   {
     date: "อาทิตย์ 7 ธ.ค.",
-    city: "Rilong → Bipenggou → เฉิงตู → เซี่ยงไฮ้",
+    city: "Siguniangshan → Chengdu",
     icon: <Trees className="w-4 h-4" />,
     items: [
       {
-        time: "06:00",
-        title: "เช็กเอาท์ + ออกจาก Rilong",
-        note: "เช็กสภาพถนน/หิมะ, เติมน้ำมันเต็มถัง",
+        time: "08:00–11:00",
+        title: "เที่ยว Changping Valley (เดินป่าเบา ๆ)",
+        note: "วิวป่าสนและภูเขา",
       },
       {
-        time: "06:30",
-        title: "เดินทาง Rilong → Bipenggou (~4-5 ชม.)",
-        note: "เส้นทางผ่าน Li County, จัดเตรียมอาหารกลางทาง",
+        time: "12:00–16:00",
+        title: "เดินทางกลับ Chengdu",
+        note: "แวะ Li County ได้",
       },
       {
-        time: "10:30–13:30",
-        title: "เที่ยว Bipenggou National Forest Park",
-        note: "ตั๋ว ~150 CNY, Snowmobile +100-200 CNY, ทะเลสาบ/ป่าสน, ถ่ายรูปหิมะ",
-      },
-      {
-        time: "11:30",
-        title: "กิจกรรม Snowmobile/Hiking",
-        note: "เสื้อกันหนาว, ถุงมือ, รองเท้าเดิน, กล้อง/โทรศัพท์กันน้ำ",
-      },
-      {
-        time: "13:30",
-        title: "ลันช์ + เก็บของ",
-        note: "ร้านอาหารในปาร์ค หรือ packed lunch",
-      },
-      {
-        time: "14:00–18:00",
-        title: "เดินทางกลับเฉิงตู",
-        note: "แวะพัก Li County, เช็คเวลาบิน, คืนรถเช่า",
+        time: "17:00",
+        title: "เช็กอินโรงแรม Chengdu",
+        note: "พักในเมือง 1 คืน",
       },
       {
         time: "18:30",
-        title: "ไปสนามบินเฉิงตู CTU",
-        note: "เผื่อเวลารถติด + เช็กอิน 2 ชม.",
-      },
-      {
-        time: "20:00",
-        title: "เที่ยวบิน CTU → PVG Shanghai",
-        note: "ตั๋วราคา ~500-800 CNY, ใช้เวลาบิน ~2.5 ชม.",
-      },
-      {
-        time: "23:30",
-        title: "ถึงเซี่ยงไฮ้ Pudong Airport → เข้าเมือง",
-        note: "Maglev Train หรือ Metro Line 2, เช็กอิน Lintin Hotel/Meego Hostel",
+        title: "เที่ยว Jinli Ancient Street",
+        note: "อาหารท้องถิ่น + ช้อปปิ้ง",
       },
     ],
   },
   {
     date: "จันทร์ 8 ธ.ค.",
-    city: "เที่ยวเมืองเซี่ยงไฮ้",
+    city: "Chengdu → Shanghai",
     icon: <BuildingIcon />,
     items: [
       {
-        time: "09:00",
-        title: "อาหารเช้า + เตรียมตัว",
-        note: "Soy milk + Youtiao (ปาทองโก้จีน) ตามร้านริมทาง",
+        time: "08:00–11:00",
+        title: "Chengdu Panda Base",
+        note: "ดูแพนด้า (ควรไปเช้า)",
       },
       {
-        time: "10:00–12:00",
-        title: "The Bund + Huangpu River",
-        note: "ถ่ายรูปสกายไลน์, เดิน Nanjing Road, วิวตึกเก่า vs ใหม่",
-      },
-      {
-        time: "12:30",
-        title: "ลันช์ Jia Jia Tang Bao (Xiao Long Bao)",
-        note: "ร้านดัง ~30-50 CNY/คน, คิวยาว แต่คุ้มค่า",
-      },
-      {
-        time: "14:00–16:00",
-        title: "Yu Garden + Old City",
-        note: "ตั๋ว ~40 CNY, สวนจีนโบราณ, ซื้อของฝาก, ชาจีน",
-      },
-      {
-        time: "16:30",
-        title: "คาเฟ่พักผ่อน หรือ Massage",
-        note: "เตรียมพลังสำหรับวันพรุ่งนี้ที่ Disneyland",
+        time: "14:00",
+        title: "บิน Chengdu → Shanghai (PVG)",
+        note: "เวลาบิน ~2.5 ชม.",
       },
       {
         time: "18:00",
-        title: "ดินเนอร์ Yang's Fried Dumpling",
-        note: "ถูกและอร่อย ~20-30 CNY/คน",
-      },
-      {
-        time: "19:30",
-        title: "เดิน Xintiandi + French Concession",
-        note: "บาร์, ไนท์ไลฟ์, สถาปัตยกรรมยุโรป",
-      },
-      {
-        time: "21:00",
-        title: "กลับที่พัก + เตรียมของสำหรับ Disneyland",
-        note: "รองเท้าสบาย, เสื้อกันหนาว, Power bank, น้ำ",
+        title: "เดินเล่น The Bund + Nanjing Road",
+        note: "วิว skyline, shopping street",
       },
     ],
   },
   {
     date: "อังคาร 9 ธ.ค.",
-    city: "Shanghai Disneyland (เต็มวัน)",
+    city: "Shanghai Disneyland",
     icon: <CastleIcon />,
     items: [
       {
-        time: "07:00",
-        title: "อาหารเช้าที่โรงแรม + ออกเดินทาง",
-        note: "เตรียมของใช้: ตั๋ว, Passport, น้ำ, Power bank, กล้อง",
-      },
-      {
-        time: "08:00",
-        title: "Metro → Shanghai Disneyland Station",
-        note: "Line 11 สุดท้าย, ใช้เวลา ~1 ชม. จากเมือง",
-      },
-      {
-        time: "09:00",
-        title: "เข้า Shanghai Disneyland",
-        note: "เปิด 09:00 (เช็คเวลาอัพเดต), ซื้อ Genie+ ถ้าจำเป็น",
-      },
-      {
-        time: "09:15",
-        title: "Tron Lightcycle (เครื่องเล่นฮิตที่สุด)",
-        note: "วิ่งตรงไป หรือใช้ Lightning Lane, ระวังความสูง 122cm",
-      },
-      {
-        time: "10:00",
-        title: "Pirates of the Caribbean + Adventure Isle",
-        note: "เครื่องเล่นยอดฮิต, จัดลำดับตาม queue time",
-      },
-      {
-        time: "12:00",
-        title: "ลันช์ใน Disney",
-        note: "ร้านใน park ~100-200 CNY/คน หรือ นำอาหารเข้าได้",
-      },
-      {
-        time: "13:00–15:00",
-        title: "Frozen, Zootopia, Peter Pan",
-        note: "เลือกตาม queue + สนใจ, ถ่ายรูปกับ character",
-      },
-      {
-        time: "15:30",
-        title: "Shopping Disney Store",
-        note: "ของที่ระลึก, Mickey ears, ตุ๊กตา ~100-500 CNY",
-      },
-      {
-        time: "17:00",
-        title: "Parade + Castle Show",
-        note: "หาจุดชมดี ๆ เพื่อถ่ายรูป",
-      },
-      {
-        time: "19:00",
-        title: "ดินเนอร์ + เครื่องเล่นที่เหลือ",
-        note: "ใช้เวลาค่ำ queue สั้นลง",
-      },
-      {
-        time: "21:00",
-        title: "Fireworks Show (ไฮไลท์)",
-        note: "หาจุดยืนตรงปราสาท ~30 นาทีก่อน",
-      },
-      {
-        time: "22:00",
-        title: "กลับโรงแรม",
-        note: "Metro หรือ Didi, จราจรหนาแน่น",
+        time: "09:00–21:00",
+        title: "Shanghai Disneyland (เต็มวัน)",
+        note: "TRON, Pirates, Castle show, Fireworks",
       },
     ],
   },
   {
     date: "พุธ 10 ธ.ค.",
-    city: "เดินทางกลับไทย",
+    city: "Shanghai → Bangkok",
     icon: <Plane className="w-4 h-4" />,
     items: [
       {
-        time: "10:00",
-        title: "เช็กเอาท์ + เก็บกระเป๋า",
-        note: "ดูเวลาเที่ยวบิน, คำนวณเวลาไปสนามบิน",
+        time: "09:00–12:00",
+        title: "Yu Garden + Old Town Bazaar",
+        note: "สถาปัตยกรรมจีนเก่า + ช้อปของฝาก",
       },
       {
-        time: "10:00–12:00",
-        title: "ช้อปปิ้งของฝากสุดท้าย",
-        note: "Nanjing Road, ชา, ขนม, เสื้อผ้า, อิเลคทรอนิกส์",
+        time: "13:00–17:00",
+        title: "Xintiandi + ช้อปปิ้ง Nanjing Road",
+        note: "คาเฟ่, ช้อปปิ้ง, เดินเล่น",
       },
       {
-        time: "12:30",
-        title: "ลันช์ Din Tai Fung Xintiandi",
-        note: "ร้านสุดท้าย Xiao Long Bao ดัง ~80-120 CNY/คน",
-      },
-      {
-        time: "19:00",
-        title: "รับกระเป๋า + ออกไปสนามบิน Pudong",
-        note: "Maglev Train (8 นาที) หรือ Metro Line 2 (1 ชม.)",
-      },
-      {
-        time: "20:00",
-        title: "เช็กอิน + Tax Refund (ถ้ามี)",
-        note: "เช็กอินล่วงหน้า 3 ชม., เก็บใบเสร็จสำหรับ tax refund",
+        time: "21:00",
+        title: "ออกเดินทางไปสนามบิน PVG",
+        note: "Maglev train ~8 นาที หรือ Metro Line 2",
       },
       {
         time: "23:59",
-        title: "เที่ยวบิน PVG → BKK",
-        note: "ระยะเวลาบิน ~3-4 ชม. + ต่างเวลา 1 ชม.",
-      },
-      {
-        time: "23:59",
-        title: "ถึงไทย ความทรงจำดี ๆ",
-        note: "ผ่านตรวจคนเข้าเมือง, รับกระเป๋า, กลับบ้านปลอดภัย",
+        title: "บิน Shanghai → Bangkok",
+        note: "ถึงไทยเช้ามืดวันที่ 11 ธ.ค.",
       },
     ],
   },
@@ -1191,9 +1052,6 @@ export default function ChinaTripItinerary() {
                   <span>✅</span> <span>Passport (เหลือ {">"} 6 เดือน)</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
-                  <span>✅</span> <span>วีซ่าจีน</span>
-                </div>
-                <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
                   <span>✅</span> <span>ตั๋วเครื่องบิน (PDF + Print)</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-white/60 rounded">
@@ -1422,7 +1280,7 @@ export default function ChinaTripItinerary() {
                   <span className="text-teal-600 font-bold">📄</span>
                   <div>
                     <strong>
-                      เอกสารสำคัญ: Passport ({">"}6 เดือน), วีซ่าจีน,
+                      เอกสารสำคัญ: Passport ({">"}6 เดือน),
                       ตั๋วเครื่องบิน
                     </strong>
                     <div className="text-xs mt-1">
