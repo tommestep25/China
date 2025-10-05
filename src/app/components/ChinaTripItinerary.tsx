@@ -53,6 +53,13 @@ const places = [
   },
   {
     city: "Chengdu",
+    name: "Daci Temple (大慈寺)",
+    type: "วัดพุทธโบราณ",
+    maps: "https://www.google.com/maps?q=Daci+Temple+Chengdu&output=embed",
+    link: "https://goo.gl/maps/Uz7fepYhrd7m43gM9",
+  },
+  {
+    city: "Chengdu",
     name: "Chen Mapo Tofu",
     type: "อาหารเสฉวน (Mapo Tofu)",
     maps: "https://www.google.com/maps?q=Chen+Mapo+Tofu+Chengdu&output=embed",
@@ -65,6 +72,7 @@ const places = [
     maps: "https://www.google.com/maps?q=Shu+Daxia+Hotpot+Chengdu&output=embed",
     link: "https://goo.gl/maps/jPR5Yt7oxN1jvHcb8",
   },
+
 
   // --- Rilong / Siguniangshan ---
   {
@@ -88,6 +96,7 @@ const places = [
     maps: "https://www.google.com/maps?q=Four+Girls+Mountain+Restaurant+Rilong&output=embed",
     link: "https://goo.gl/maps/6g6UxSTPgeALPvGJ6",
   },
+
 
   // --- Shanghai ---
   {
@@ -194,7 +203,129 @@ function BuildingIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const infographicData = {
+Chengdu: {
+titleTH: "เฉิงตู",
+titleEN: "Chengdu",
+items: [
+{ th: "วัด Daci (大慈寺)", en: "Daci Temple", note: "เดิน 5-10 นาทีจาก Taikoo Li" },
+{ th: "ถนน Jinli", en: "Jinli Ancient Street", note: "แหล่ง street food เก่าแก่" },
+{ th: "ฐานเพาะพันธุ์แพนด้า", en: "Panda Base", note: "ควรไปเช้าเพื่อเห็นแพนด้า" },
+{ th: "วัด Wenshu", en: "Wenshu Monastery", note: "วัดสงบ ใกล้ Taikoo Li" },
+],
+},
+Siguniang: {
+titleTH: "สี่ดรุณี",
+titleEN: "Siguniang Shan",
+items: [
+{ th: "หมู่บ้าน Rilong", en: "Rilong Village", note: "basecamp, ปรับตัวความสูง (~3000m)" },
+{ th: "หุบเขา Changping", en: "Changping Valley", note: "เดินป่าเบาๆ 3–4 ชม." },
+{ th: "หุบเขา Shuangqiao", en: "Shuangqiao Valley", note: "วิวภูเขาหิมะและธารน้ำ" },
+{ th: "Bipenggou (ขับเล่น/หิมะ)", en: "Bipenggou", note: "กิจกรรมหิมะ/รถสโนว์โมบิล (ฤดูหนาว)" },
+],
+},
+Heishui: {
+titleTH: "เฮ่ยซุ่ย",
+titleEN: "Heishui",
+items: [
+{ th: "ธารน้ำแข็งต๋ากู่", en: "Dagu Glacier", note: "กระเช้าชมธารน้ำแข็ง" },
+{ th: "ตลาดท้องถิ่น", en: "Local Market", note: "ของพื้นเมือง/อาหารทิเบต" },
+{ th: "วิวเส้นทาง Balang", en: "Balang Pass views", note: "จุดถ่ายรูประหว่างทาง" },
+],
+},
+Shanghai: {
+titleTH: "เซี่ยงไฮ้",
+titleEN: "Shanghai",
+items: [
+{ th: "The Bund (外滩)", en: "The Bund", note: "เส้นขอบฟ้า/ถ่ายภาพตอนเย็น" },
+{ th: "Yu Garden (豫园)", en: "Yu Garden", note: "สวนจีนดั้งเดิม + Bazaar" },
+{ th: "Shanghai Disneyland", en: "Shanghai Disneyland", note: "ทั้งวัน/ซื้อบัตรล่วงหน้า" },
+{ th: "Xintiandi / Nanjing Road", en: "Xintiandi / Nanjing Rd.", note: "ช้อปปิ้ง/คาเฟ่" },
+],
+},
+};
+function IconMountain() {
+return (
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 20 L12 4 L22 20 Z" stroke="#0ea5e9" strokeWidth="1.2" fill="#e0f7ff" />
+</svg>
+);
+}
+function IconTemple() {
+return (
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3" y="7" width="18" height="10" stroke="#0284c7" strokeWidth="1.2" fill="#f0fbff" />
+<path d="M3 7 L12 3 L21 7" stroke="#0284c7" strokeWidth="1.2" />
+</svg>
+);
+}
+function IconPanda() {
+return (
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="9" stroke="#0369a1" strokeWidth="1.2" fill="#e6f7ff" />
+<circle cx="9" cy="11" r="1.6" fill="#0369a1" />
+<circle cx="15" cy="11" r="1.6" fill="#0369a1" />
+</svg>
+);
+}
+function VerticalInfographic({ cityKey }: { cityKey: keyof typeof infographicData }) {
+const data = infographicData[cityKey];
 
+
+return (
+<div className="w-full max-w-xs mx-auto bg-white rounded-2xl shadow-lg p-4 border border-sky-100">
+<div className="flex items-center gap-3 mb-3">
+<div className="p-2 rounded-lg bg-gradient-to-br from-sky-50 to-white border border-sky-100">
+{cityKey === 'Chengdu' && <IconPanda />}
+{cityKey === 'Siguniang' && <IconMountain />}
+{cityKey === 'Heishui' && <IconMountain />}
+{cityKey === 'Shanghai' && <IconTemple />}
+</div>
+<div>
+<div className="text-lg font-bold text-sky-700">{data.titleTH}</div>
+<div className="text-xs text-sky-400">{data.titleEN}</div>
+</div>
+</div>
+
+
+<div className="space-y-2">
+{data.items.map((it, i) => (
+<div key={i} className="flex gap-3 items-start p-2 rounded-lg bg-gradient-to-r from-white to-sky-50 border border-sky-50">
+<div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/60">
+{/* small icon */}
+{i % 3 === 0 ? (
+<svg width="22" height="22" viewBox="0 0 24 24" className="text-sky-500">
+<circle cx="12" cy="12" r="9" fill="#e6f7ff" stroke="#0284c7" strokeWidth="1" />
+</svg>
+) : i % 3 === 1 ? (
+<svg width="22" height="22" viewBox="0 0 24 24" className="text-sky-500">
+<rect x="3" y="6" width="18" height="12" fill="#f0fbff" stroke="#0284c7" strokeWidth="1" />
+</svg>
+) : (
+<svg width="22" height="22" viewBox="0 0 24 24" className="text-sky-500">
+<path d="M2 20 L12 6 L22 20 Z" fill="#e0f7ff" stroke="#0ea5e9" strokeWidth="1" />
+</svg>
+)}
+</div>
+<div>
+<div className="text-sm font-semibold text-sky-800">{it.th}</div>
+<div className="text-xs text-sky-500">{it.en}</div>
+<div className="text-xs text-slate-500 mt-1">{it.note}</div>
+</div>
+</div>
+))}
+</div>
+
+
+<div className="mt-4 text-xs text-slate-500">
+<strong>Distance / Travel time (est.)</strong>
+<div>• Rilong ↔ Heishui: ~4–5 hrs by car</div>
+<div>• Heishui ↔ Chengdu: ~3–4 hrs by car</div>
+<div>• Chengdu ↔ Shanghai: ~2.5 hrs flight</div>
+</div>
+</div>
+);
+}
 function CastleIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -217,122 +348,105 @@ function CastleIcon(props: React.SVGProps<SVGSVGElement>) {
 
 const itinerary = [
   {
-    date: "ก่อนเดินทาง (1-2 สัปดาห์ล่วงหน้า)",
-    city: "เตรียมการล่วงหน้า",
-    icon: <CalendarPlus className="w-4 h-4" />,
-    items: [
-      {
-        time: "สำคัญมาก",
-        title: "จองตั๋วเครื่องบิน BKK-CTU, CTU-PVG, PVG-BKK",
-        note: "หนังสือเดินทาง > 6 เดือน",
-      },
-      {
-        time: "ทำล่วงหน้า",
-        title: "จองที่พัก Rilong (2 คืน), Chengdu (1 คืน), Shanghai (2 คืน)",
-        note: "Booking.com, Agoda หรือ Ctrip",
-      },
-      {
-        time: "จำเป็น",
-        title: "ซื้อตั๋ว Shanghai Disneyland",
-        note: "เว็บ official หรือ Klook ~2,000-2,800 บาท",
-      },
-      {
-        time: "แนะนำ",
-        title: "ดาวน์โหลด WeChat, Alipay, Didi, Baidu Maps",
-        note: "VPN และผูกบัตรเครดิต",
-      },
-    ],
-  },
-  {
     date: "ศุกร์ 5 ธ.ค.",
     city: "Chengdu → Siguniangshan",
     icon: <Plane className="w-4 h-4" />,
     items: [
       {
-        time: "09:30",
-        title: "ถึงสนามบิน Chengdu TFU (T2)",
-        note: "ผ่าน ตม. + รับกระเป๋า + ซื้อซิมจีน",
+        time: "12:00",
+        title: "เดินทางจาก Chengdu → Siguniangshan",
+        note: "รถส่วนตัว ~4-5 ชม. ผ่านภูเขา Balang Shan",
       },
       {
-        time: "10:30–14:30",
-        title: "เดินทาง Chengdu → Rilong (Siguniangshan)",
-        note: "รถส่วนตัว ~4 ชม. ผ่านภูเขา Balang Shan",
+        time: "17:00",
+        title: "เช็กอินที่ Changping Inn",
+        note: "พักที่ Siguniang Shan 1 คืน",
       },
       {
-        time: "15:00",
-        title: "เช็กอินที่ Ten Miles B&B",
-        note: "พักผ่อน ปรับตัวอากาศสูง (3,000m)",
-      },
-      {
-        time: "16:30",
+        time: "18:00",
         title: "เดินเล่นหมู่บ้าน Rilong",
-        note: "บรรยากาศเงียบสงบ วิวเขา",
+        note: "ชมวิวภูเขาและวิถีชีวิตท้องถิ่น",
       },
       {
-        time: "18:30",
-        title: "ดินเนอร์ท้องถิ่น",
-        note: "อาหารทิเบต + เสฉวน",
+        time: "19:00",
+        title: "ดินเนอร์ที่ Four Girls Mountain Restaurant",
+        note: "อาหารทิเบต + เสฉวนท้องถิ่น",
       },
     ],
   },
   {
     date: "เสาร์ 6 ธ.ค.",
-    city: "Siguniangshan (Shuangqiao Valley)",
+    city: "Siguniangshan → Heishui",
     icon: <Mountain className="w-4 h-4" />,
     items: [
       {
-        time: "08:00–15:00",
-        title: "เที่ยว Shuangqiao Valley",
-        note: "รถบัสเข้าอุทยาน วิวภูเขา ธารน้ำแข็ง",
+        time: "07:30–12:00",
+        title: "เที่ยว Changping Valley (เดินป่า/ถ่ายรูป)",
+        note: "หุบเขาสวย มีลำธารและภูเขาหิมะ",
       },
       {
-        time: "16:00",
-        title: "พักผ่อน + เดินเล่นรอบหมู่บ้าน",
-        note: "ถ่ายรูปพระอาทิตย์ตก",
+        time: "12:30",
+        title: "อาหารกลางวันที่ Rilong",
+        note: "แนะนำอาหารทิเบตแบบดั้งเดิม",
       },
       {
-        time: "18:00",
-        title: "ดินเนอร์ที่เกสต์เฮาส์",
-        note: "Yak meat, ซุปอุ่น ๆ",
+        time: "13:00–18:30",
+        title: "เดินทางไป Heishui",
+        note: "ใช้เวลาประมาณ 4–5 ชม. ระหว่างทางชมวิวหุบเขา",
+      },
+      {
+        time: "19:00",
+        title: "เช็กอินที่ Cailin Holiday Manor",
+        note: "พักผ่อนที่เมือง Heishui",
       },
     ],
   },
   {
     date: "อาทิตย์ 7 ธ.ค.",
-    city: "Siguniangshan → Chengdu",
+    city: "Heishui → Chengdu",
     icon: <Trees className="w-4 h-4" />,
     items: [
       {
-        time: "08:00–11:00",
-        title: "เที่ยว Changping Valley (เดินป่าเบา ๆ)",
-        note: "วิวป่าสนและภูเขา",
+        time: "08:00–12:00",
+        title: "เที่ยว Dagu Glacier (Heishui)",
+        note: "นั่งกระเช้าชมธารน้ำแข็งและภูเขาหิมะ",
       },
       {
-        time: "12:00–16:00",
+        time: "12:30",
+        title: "อาหารกลางวันที่ Heishui",
+        note: "อาหารท้องถิ่น เสฉวน",
+      },
+      {
+        time: "14:00–17:00",
         title: "เดินทางกลับ Chengdu",
-        note: "แวะ Li County ได้",
+        note: "ใช้เวลาประมาณ 3–4 ชม.",
       },
       {
         time: "17:00",
-        title: "เช็กอินโรงแรม Chengdu",
-        note: "พักในเมือง 1 คืน",
+        title: "เช็กอินที่โรงแรมชูปิน (Taikoo Li, ถนนชุนซี)",
+        note: "พักในเมืองเฉิงตู",
       },
       {
-        time: "18:30",
-        title: "เที่ยว Jinli Ancient Street",
-        note: "อาหารท้องถิ่น + ช้อปปิ้ง",
+        time: "18:00",
+        title: "เยี่ยมชมวัด Daci Temple",
+        note: "ใกล้โรงแรม เดินถึงได้",
+      },
+      {
+        time: "19:30",
+        title: "ร้านTaode Casseole + เดินเล่น Taikoo Li + ถนนชุนซี",
+        note: "อาหารค่ำ + ช้อปปิ้ง",
       },
     ],
   },
   {
     date: "จันทร์ 8 ธ.ค.",
     city: "Chengdu → Shanghai",
-    icon: <BuildingIcon />,
+    icon: <Plane className="w-4 h-4" />,
     items: [
       {
         time: "08:00–11:00",
-        title: "Chengdu Panda Base",
-        note: "ดูแพนด้า (ควรไปเช้า)",
+        title: "เที่ยว Wenshu Monastery (วัดเจ้าแม่กวนอิม)",
+        note: "วัดดังในเฉิงตู บรรยากาศสงบ",
       },
       {
         time: "14:00",
@@ -387,23 +501,61 @@ const itinerary = [
   },
 ];
 
-// ICS generator
-function makeICS(){
-  const lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//RoadTrip China//EN"];
+type DayItem = {
+  time: string;
+  title: string;
+  note: string;
+};
+
+type DayCardProps = {
+  date: string;
+  city: string;
+  icon: React.ReactNode;
+  items: DayItem[];
+};
+
+function DayCard({ date, city, icon, items }: DayCardProps) {
+  return (
+    <Card className="mb-4">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          {icon}
+          {date} - {city}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-2">
+          {items.map((it, idx) => (
+            <li key={idx} className="p-2 border rounded bg-sky-50">
+              <div className="font-semibold">
+                {it.time} - {it.title}
+              </div>
+              <div className="text-sm text-slate-600">{it.note}</div>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+}
+function makeICS() {
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//RoadTrip China//EN"];
   const tz = "Asia/Bangkok";
-  
-  itinerary.forEach((day, idx)=>{
-    day.items.forEach((it, j)=>{
+
+  itinerary.forEach((day, idx) => {
+    day.items.forEach((it, j) => {
       const timeStr = it.time;
       const hasClock = /^\d{1,2}:\d{2}(–\d{1,2}:\d{2})?$/.test(timeStr);
-      if(!hasClock) return;
-      
+      if (!hasClock) return;
+
       const [start, end] = timeStr.split("–");
-      const baseDay = 4 + idx;
-      const pad = (n: number) => String(n).padStart(2,'0');
-      const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
-      const endDate = end ? `2025${pad(12)}${pad(baseDay)}T${end.replace(":","")}00` : `2025${pad(12)}${pad(baseDay)}T${start.replace(":","")}00`;
-      
+      const baseDay = 6 + idx; // วันที่เริ่มคือ 5 ธ.ค.
+      const pad = (n: number) => String(n).padStart(2, "0");
+      const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(":", "")}00`;
+      const endDate = end
+        ? `2025${pad(12)}${pad(baseDay)}T${end.replace(":", "")}00`
+        : `2025${pad(12)}${pad(baseDay)}T${start.replace(":", "")}00`;
+
       lines.push(
         "BEGIN:VEVENT",
         `UID:${idx}-${j}@roadtrip-china`,
@@ -411,18 +563,22 @@ function makeICS(){
         `DTSTART;TZID=${tz}:${startDate}`,
         `DTEND;TZID=${tz}:${endDate}`,
         `SUMMARY:${day.city} — ${it.title}`,
-        `DESCRIPTION:${it.note || ''}`,
+        `DESCRIPTION:${it.note || ""}`,
         "END:VEVENT"
       );
     });
   });
-  
+
   lines.push("END:VCALENDAR");
-  const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8"});
+
+  // สร้างไฟล์ .ics แล้วดาวน์โหลด
+  const blob = new Blob([lines.join("\r\n")], {
+    type: "text/calendar;charset=utf-8",
+  });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; 
-  a.download = 'RoadTrip-China-Dec.ics';
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "RoadTrip-China-Dec.ics";
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -439,6 +595,7 @@ export default function ChinaTripItinerary() {
   }, [q]);
 
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 text-slate-800">
       <header className="sticky top-0 z-10 backdrop-blur bg-gradient-to-r from-red-500/90 via-orange-500/90 to-amber-500/90 border-b border-orange-200 text-white shadow-lg">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -454,68 +611,68 @@ export default function ChinaTripItinerary() {
             </h1>
           </div>
           <div className="hidden sm:flex gap-2">
-  <Button 
-    onClick={makeICS} 
-    className="rounded-2xl shadow-lg bg-white text-red-600 hover:bg-red-50 border-2 border-white"
-  >
-    <CalendarPlus className="w-4 h-4 mr-2"/> ดาวน์โหลด .ICS
-  </Button>
+            <Button
+              onClick={makeICS}
+              className="rounded-2xl shadow-lg bg-white text-red-600 hover:bg-red-50 border-2 border-white"
+            >
+              <CalendarPlus className="w-4 h-4 mr-2" /> ดาวน์โหลด .ICS
+            </Button>
 
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button className="rounded-2xl shadow-lg bg-white text-blue-600 hover:bg-blue-50 border-2 border-white">
-        <ExternalLink className="w-4 h-4 mr-2"/> ประกันเดินทาง PDF
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent>
-      {[
-        { name: "ต้อม", file: "/SOONTONSIN.pdf" },
-        { name: "เชลล์", file: "/SURADACH.pdf" },
-        { name: "นุ้ย", file: "/RUTTANACHOT.pdf" },
-        { name: "บีม", file: "/PHUMARAT.pdf" },
-        { name: "สปาย", file: "/CHANAPA.pdf" },
-        { name: "พลอย", file: "/DUANGPORN.pdf" },
-      ].map((p, i) => (
-        <DropdownMenuItem key={i} onClick={() => window.open(p.file, "_blank")}>
-          {p.name}
-        </DropdownMenuItem>
-      ))}
-    </DropdownMenuContent>
-  </DropdownMenu>
-</div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="rounded-2xl shadow-lg bg-white text-blue-600 hover:bg-blue-50 border-2 border-white">
+                  <ExternalLink className="w-4 h-4 mr-2" /> ประกันเดินทาง PDF
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {[
+                  { name: "ต้อม", file: "/SOONTONSIN.pdf" },
+                  { name: "เชลล์", file: "/SURADACH.pdf" },
+                  { name: "นุ้ย", file: "/RUTTANACHOT.pdf" },
+                  { name: "บีม", file: "/PHUMARAT.pdf" },
+                  { name: "สปาย", file: "/CHANAPA.pdf" },
+                  { name: "พลอย", file: "/DUANGPORN.pdf" },
+                ].map((p, i) => (
+                  <DropdownMenuItem key={i} onClick={() => window.open(p.file, "_blank")}>
+                    {p.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
 
-{/* Mobile buttons */}
-<div className="flex sm:hidden gap-2">
-  <Button 
-    onClick={makeICS} 
-    size="icon"
-    className="rounded-full shadow-lg bg-white text-red-600 hover:bg-red-50 border-2 border-white"
-  >
-    <CalendarPlus className="w-5 h-5" />
-  </Button>
+          {/* Mobile buttons */}
+          <div className="flex sm:hidden gap-2">
+            <Button
+              onClick={makeICS}
+              size="icon"
+              className="rounded-full shadow-lg bg-white text-red-600 hover:bg-red-50 border-2 border-white"
+            >
+              <CalendarPlus className="w-5 h-5" />
+            </Button>
 
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button size="icon" className="rounded-full shadow-lg bg-white text-blue-600 hover:bg-blue-50 border-2 border-white">
-        <ExternalLink className="w-5 h-5" />
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent>
-      {[
-        { name: "ต้อม", file: "/SOONTONSIN.pdf" },
-        { name: "เชลล์", file: "/SURADACH.pdf" },
-        { name: "นุ้ย", file: "/RUTTANACHOT.pdf" },
-        { name: "บีม", file: "/PHUMARAT.pdf" },
-        { name: "สปาย", file: "/CHANAPA.pdf" },
-        { name: "พลอย", file: "/DUANGPORN.pdf" },
-      ].map((p, i) => (
-        <DropdownMenuItem key={i} onClick={() => window.open(p.file, "_blank")}>
-          {p.name}
-        </DropdownMenuItem>
-      ))}
-    </DropdownMenuContent>
-  </DropdownMenu>
-</div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size="icon" className="rounded-full shadow-lg bg-white text-blue-600 hover:bg-blue-50 border-2 border-white">
+                  <ExternalLink className="w-5 h-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {[
+                  { name: "ต้อม", file: "/SOONTONSIN.pdf" },
+                  { name: "เชลล์", file: "/SURADACH.pdf" },
+                  { name: "นุ้ย", file: "/RUTTANACHOT.pdf" },
+                  { name: "บีม", file: "/PHUMARAT.pdf" },
+                  { name: "สปาย", file: "/CHANAPA.pdf" },
+                  { name: "พลอย", file: "/DUANGPORN.pdf" },
+                ].map((p, i) => (
+                  <DropdownMenuItem key={i} onClick={() => window.open(p.file, "_blank")}>
+                    {p.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </header>
 
@@ -531,32 +688,29 @@ export default function ChinaTripItinerary() {
                 viewport={{ once: true }}
               >
                 <Card
-                  className={`rounded-2xl shadow-lg border-0 bg-gradient-to-br ${
-                    idx % 3 === 0
-                      ? "from-emerald-100 to-teal-100"
-                      : idx % 3 === 1
+                  className={`rounded-2xl shadow-lg border-0 bg-gradient-to-br ${idx % 3 === 0
+                    ? "from-emerald-100 to-teal-100"
+                    : idx % 3 === 1
                       ? "from-blue-100 to-indigo-100"
                       : "from-purple-100 to-pink-100"
-                  } hover:shadow-xl transition-all duration-300`}
+                    } hover:shadow-xl transition-all duration-300`}
                 >
                   <CardHeader className="pb-2">
                     <CardTitle
-                      className={`flex items-center gap-2 text-lg ${
-                        idx % 3 === 0
-                          ? "text-emerald-800"
-                          : idx % 3 === 1
+                      className={`flex items-center gap-2 text-lg ${idx % 3 === 0
+                        ? "text-emerald-800"
+                        : idx % 3 === 1
                           ? "text-blue-800"
                           : "text-purple-800"
-                      }`}
+                        }`}
                     >
                       <span
-                        className={`p-2 rounded-full ${
-                          idx % 3 === 0
-                            ? "bg-emerald-200 text-emerald-700"
-                            : idx % 3 === 1
+                        className={`p-2 rounded-full ${idx % 3 === 0
+                          ? "bg-emerald-200 text-emerald-700"
+                          : idx % 3 === 1
                             ? "bg-blue-200 text-blue-700"
                             : "bg-purple-200 text-purple-700"
-                        }`}
+                          }`}
                       >
                         {day.icon}
                       </span>
@@ -572,13 +726,12 @@ export default function ChinaTripItinerary() {
                         className="flex gap-3 items-start p-3 rounded-xl bg-white/50 backdrop-blur border border-white/30"
                       >
                         <Clock
-                          className={`w-4 h-4 mt-0.5 shrink-0 ${
-                            idx % 3 === 0
-                              ? "text-emerald-600"
-                              : idx % 3 === 1
+                          className={`w-4 h-4 mt-0.5 shrink-0 ${idx % 3 === 0
+                            ? "text-emerald-600"
+                            : idx % 3 === 1
                               ? "text-blue-600"
                               : "text-purple-600"
-                          }`}
+                            }`}
                         />
                         <div>
                           <div className="font-medium text-slate-800">
@@ -632,15 +785,14 @@ export default function ChinaTripItinerary() {
                 <TabsTrigger
                   key={c}
                   value={c}
-                  className={`rounded-2xl px-4 font-medium transition-all duration-300 ${
-                    i === 0
-                      ? "data-[state=active]:bg-red-500 data-[state=active]:text-white"
-                      : i === 1
+                  className={`rounded-2xl px-4 font-medium transition-all duration-300 ${i === 0
+                    ? "data-[state=active]:bg-red-500 data-[state=active]:text-white"
+                    : i === 1
                       ? "data-[state=active]:bg-emerald-500 data-[state=active]:text-white"
                       : i === 2
-                      ? "data-[state=active]:bg-blue-500 data-[state=active]:text-white"
-                      : "data-[state=active]:bg-purple-500 data-[state=active]:text-white"
-                  }`}
+                        ? "data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+                        : "data-[state=active]:bg-purple-500 data-[state=active]:text-white"
+                    }`}
                 >
                   {c}
                 </TabsTrigger>
@@ -656,38 +808,35 @@ export default function ChinaTripItinerary() {
                       .map((p, i) => (
                         <Card
                           key={p.name + i}
-                          className={`rounded-2xl overflow-hidden shadow-lg border-0 bg-gradient-to-br hover:shadow-xl transition-all duration-300 ${
-                            cityIdx === 0
-                              ? "from-red-50 to-orange-50 border-l-4 border-red-400"
-                              : cityIdx === 1
+                          className={`rounded-2xl overflow-hidden shadow-lg border-0 bg-gradient-to-br hover:shadow-xl transition-all duration-300 ${cityIdx === 0
+                            ? "from-red-50 to-orange-50 border-l-4 border-red-400"
+                            : cityIdx === 1
                               ? "from-emerald-50 to-teal-50 border-l-4 border-emerald-400"
                               : cityIdx === 2
-                              ? "from-blue-50 to-indigo-50 border-l-4 border-blue-400"
-                              : "from-purple-50 to-pink-50 border-l-4 border-purple-400"
-                          }`}
+                                ? "from-blue-50 to-indigo-50 border-l-4 border-blue-400"
+                                : "from-purple-50 to-pink-50 border-l-4 border-purple-400"
+                            }`}
                         >
                           <CardHeader className="pb-2">
                             <CardTitle
-                              className={`text-lg flex items-center gap-2 ${
-                                cityIdx === 0
-                                  ? "text-red-700"
-                                  : cityIdx === 1
+                              className={`text-lg flex items-center gap-2 ${cityIdx === 0
+                                ? "text-red-700"
+                                : cityIdx === 1
                                   ? "text-emerald-700"
                                   : cityIdx === 2
-                                  ? "text-blue-700"
-                                  : "text-purple-700"
-                              }`}
+                                    ? "text-blue-700"
+                                    : "text-purple-700"
+                                }`}
                             >
                               <Utensils
-                                className={`w-4 h-4 p-1 rounded-full ${
-                                  cityIdx === 0
-                                    ? "bg-red-200 text-red-600"
-                                    : cityIdx === 1
+                                className={`w-4 h-4 p-1 rounded-full ${cityIdx === 0
+                                  ? "bg-red-200 text-red-600"
+                                  : cityIdx === 1
                                     ? "bg-emerald-200 text-emerald-600"
                                     : cityIdx === 2
-                                    ? "bg-blue-200 text-blue-600"
-                                    : "bg-purple-200 text-purple-600"
-                                }`}
+                                      ? "bg-blue-200 text-blue-600"
+                                      : "bg-purple-200 text-purple-600"
+                                  }`}
                               />
                               {p.name}
                             </CardTitle>
@@ -708,15 +857,14 @@ export default function ChinaTripItinerary() {
                             <div className="flex justify-end">
                               <Button
                                 variant="outline"
-                                className={`rounded-xl shadow-sm border-2 font-medium transition-all duration-300 ${
-                                  cityIdx === 0
-                                    ? "border-red-300 text-red-600 hover:bg-red-50 hover:border-red-400"
-                                    : cityIdx === 1
+                                className={`rounded-xl shadow-sm border-2 font-medium transition-all duration-300 ${cityIdx === 0
+                                  ? "border-red-300 text-red-600 hover:bg-red-50 hover:border-red-400"
+                                  : cityIdx === 1
                                     ? "border-emerald-300 text-emerald-600 hover:bg-emerald-50 hover:border-emerald-400"
                                     : cityIdx === 2
-                                    ? "border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400"
-                                    : "border-purple-300 text-purple-600 hover:bg-purple-50 hover:border-purple-400"
-                                }`}
+                                      ? "border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400"
+                                      : "border-purple-300 text-purple-600 hover:bg-purple-50 hover:border-purple-400"
+                                  }`}
                                 asChild
                               >
                                 <a
@@ -751,27 +899,25 @@ export default function ChinaTripItinerary() {
             {hotels.map((h, i) => (
               <Card
                 key={i}
-                className={`rounded-2xl shadow-lg border-0 bg-gradient-to-br hover:shadow-xl transition-all duration-300 ${
-                  i % 4 === 0
-                    ? "from-cyan-50 to-blue-50 border-l-4 border-cyan-400"
-                    : i % 4 === 1
+                className={`rounded-2xl shadow-lg border-0 bg-gradient-to-br hover:shadow-xl transition-all duration-300 ${i % 4 === 0
+                  ? "from-cyan-50 to-blue-50 border-l-4 border-cyan-400"
+                  : i % 4 === 1
                     ? "from-teal-50 to-emerald-50 border-l-4 border-teal-400"
                     : i % 4 === 2
-                    ? "from-indigo-50 to-purple-50 border-l-4 border-indigo-400"
-                    : "from-pink-50 to-rose-50 border-l-4 border-pink-400"
-                }`}
+                      ? "from-indigo-50 to-purple-50 border-l-4 border-indigo-400"
+                      : "from-pink-50 to-rose-50 border-l-4 border-pink-400"
+                  }`}
               >
                 <CardHeader className="pb-1">
                   <CardTitle
-                    className={`text-lg ${
-                      i % 4 === 0
-                        ? "text-cyan-700"
-                        : i % 4 === 1
+                    className={`text-lg ${i % 4 === 0
+                      ? "text-cyan-700"
+                      : i % 4 === 1
                         ? "text-teal-700"
                         : i % 4 === 2
-                        ? "text-indigo-700"
-                        : "text-pink-700"
-                    }`}
+                          ? "text-indigo-700"
+                          : "text-pink-700"
+                      }`}
                   >
                     {h.name}
                   </CardTitle>
@@ -1030,7 +1176,27 @@ export default function ChinaTripItinerary() {
             </CardContent>
           </Card>
         </section>
+<div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 text-sky-900 p-6">
+<h1 className="text-2xl font-bold mb-6">China Trip Itinerary</h1>
 
+
+{/* Itinerary Section */}
+<div className="mb-10">
+{itinerary.map((day, idx) => (
+<DayCard key={idx} {...day} />
+))}
+</div>
+
+
+{/* Infographic Section */}
+<h2 className="text-xl font-bold mb-4">Infographics by City</h2>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<VerticalInfographic cityKey="Chengdu" />
+<VerticalInfographic cityKey="Siguniang" />
+<VerticalInfographic cityKey="Heishui" />
+<VerticalInfographic cityKey="Shanghai" />
+</div>
+</div>
         {/* Packing Checklist */}
         <section className="space-y-4">
           <div className="flex items-center gap-2 p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl border-l-4 border-purple-500">
