@@ -549,7 +549,7 @@ function makeICS() {
       if (!hasClock) return;
 
       const [start, end] = timeStr.split("–");
-      const baseDay = 6 + idx; // วันที่เริ่มคือ 5 ธ.ค.
+      const baseDay = 5 + idx; // วันที่เริ่มคือ 5 ธ.ค.
       const pad = (n: number) => String(n).padStart(2, "0");
       const startDate = `2025${pad(12)}${pad(baseDay)}T${start.replace(":", "")}00`;
       const endDate = end
